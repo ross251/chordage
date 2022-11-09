@@ -1,11 +1,11 @@
 import React, { Component, useState } from 'react'
-import Board from './Board.jsx'
+import Boardchord from './Boardchord.jsx'
 //const audio = require("/home/ross/Desktop/hwy.m4a").default
 
 function App() {
   return ( 
     <div id='appwrap'>
-      <Board/>
+      <Boardchord/>
     </div>
   ) 
 }

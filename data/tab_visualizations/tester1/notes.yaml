@@ -1,0 +1,122 @@
+# tester1 notes
+
+- measure: 1
+  instances: 
+    - - fret: 9
+        color: '#FF0000'
+        opacity: '100%' 
+      -
+      - fret: 9
+        color: '#00FF00'
+        opacity: '100%' 
+      - fret: 9
+        color: '#0000FF'
+        opacity: '100%' 
+      - fret: 9
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+    - - fret: 5
+        color: '#FF0000'
+        opacity: '100%'
+      -
+      - fret: 6
+        color: '#00FF00'
+        opacity: '100%'
+      - fret: 6
+        color: '#0000FF'
+        opacity: '100%'
+      - fret: 5
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+- measure: 2
+  instances: 
+    - - fret: 9
+        color: '#FF0000'
+        opacity: '100%' 
+      -
+      - fret: 9
+        color: '#00FF00'
+        opacity: '100%' 
+      - fret: 9
+        color: '#0000FF'
+        opacity: '100%' 
+      - fret: 9
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+    - - fret: 5
+        color: '#FF0000'
+        opacity: '100%'
+      -
+      - fret: 6
+        color: '#00FF00'
+        opacity: '100%'
+      - fret: 6
+        color: '#0000FF'
+        opacity: '100%'
+      - fret: 5
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+- measure: 3
+  instances: 
+    - - fret: 9
+        color: '#FF0000'
+        opacity: '100%' 
+      -
+      - fret: 9
+        color: '#00FF00'
+        opacity: '100%' 
+      - fret: 9
+        color: '#0000FF'
+        opacity: '100%' 
+      - fret: 9
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+    - - fret: 5
+        color: '#FF0000'
+        opacity: '100%'
+      -
+      - fret: 6
+        color: '#00FF00'
+        opacity: '100%'
+      - fret: 6
+        color: '#0000FF'
+        opacity: '100%'
+      - fret: 5
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+- measure: 4
+  instances: 
+    - - fret: 9
+        color: '#FF0000'
+        opacity: '100%' 
+      -
+      - fret: 9
+        color: '#00FF00'
+        opacity: '100%' 
+      - fret: 9
+        color: '#0000FF'
+        opacity: '100%' 
+      - fret: 9
+        color: '#FF00FF'
+        opacity: '100%'
+      -
+    - - fret: 5
+        color: '#FF0000'
+        opacity: '100%'
+      -
+      - fret: 6
+        color: '#00FF00'
+        opacity: '100%'
+      - fret: 6
+        color: '#0000FF'
+        opacity: '100%'
+      - fret: 5
+        color: '#FF00FF'
+        opacity: '100%'
+      -

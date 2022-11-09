@@ -1,0 +1,13 @@
+- info: 'Amaj7'
+  instances: 
+    - - 1
+      - 1
+    - - 3
+      - 3 
+- info: 'C#min7'
+  instances: 
+    - - 0
+      - 0
+    - - 2
+      - 2
+

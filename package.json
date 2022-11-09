@@ -3,6 +3,7 @@
   "License": "ehh",
   "scripts": {
     "b": "webpack",
+    "s": "python server.py",
     "bs": "webpack --mode development && python server.py"
   },
   "dependencies": {

@@ -1,0 +1,62 @@
+# tester1 underlays
+
+- instances: 
+    - - 2
+      - 3
+    - - 5
+      - 5
+  underlay:
+    - string: 1
+      fret: 5
+      color: '#F0000F'
+    - string: 1
+      fret: 7
+      color: '#FFFF00'
+    - string: 2
+      fret: 4
+      color: '#FF00F0'
+    - string: 2
+      fret: 5
+      color: '#F0000F'
+    - string: 2
+      fret: 7
+      color: '#FFFF00'
+    - string: 3
+      fret: 4
+      color: '#FF00F0'
+    - string: 3
+      fret: 6
+      color: '#F0000F'
+    - string: 3
+      fret: 7
+      color: '#FFFF00'
+    - string: 4
+      fret: 4
+      color: '#FF00F0'
+    - string: 4
+      fret: 6
+      color: '#F0000F'
+    - string: 4
+      fret: 7
+      color: '#FFFF00'
+    - string: 5
+      fret: 5
+      color: '#FF00F0'
+    - string: 5
+      fret: 7
+      color: '#F0000F'
+    - string: 6
+      fret: 4
+      color: '#FFFF00'
+    - string: 6
+      fret: 5
+      color: '#FF00F0'
+- instances: 
+    - - 1
+      - 1
+    - - 7
+      - 7
+  underlay:
+    - string: 6
+      fret: 2
+      color: '#F0000F'

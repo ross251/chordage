@@ -1,26 +1,23 @@
 import React, { Component, useState } from 'react'
 
-function Board() {
-  const [board_size, setBoardSize] = useState('SMALL');
-  let svg_height;
-  let svg_width;
-  if(board_size === 'SMALL'){
-    svg_height = 600;
-    svg_width = 200;
-  } else if (board_size === 'LARGE'){
-    svg_height = 900;
-    svg_width = 300;
-  }
+function Board(props) {
+  let svg_height=props.height;
+  let svg_width=props.width;
   let svg_height_str = svg_height + 'px'
   let svg_width_str = svg_width + 'px'
 
-  let x_offset = svg_width / 7
-  let y_offset = svg_height / 13
+  let x_offset = props.x_offset
+  let y_offset = props.y_offset
 
 
   return ( 
-    <div id='boardwrap'> 
-      <svg style={{backgroundColor: '#101010',
+    <div id='boardwrap'
+      style={{position: 'absolute',
+        top: '0',
+        left: '0'
+      }}
+    > 
+      <svg style={{
           height: svg_height_str,
           width: svg_width_str
         }}>
