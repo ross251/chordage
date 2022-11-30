@@ -1,7 +1,7 @@
 - info:
     base:
-    root: A
-    triad: maj
+    root: B
+    triad: min
     extensions:
       - 7
   instances: 
@@ -11,7 +11,7 @@
       - 3 
 - info:
     base: 
-    root: C#
+    root: F
     triad: min
     extensions:
       - 7
@@ -21,8 +21,8 @@
     - - 2
       - 2
 - info: 
-    base: Gb
-    root: Ab
+    base: 
+    root: A
     triad: min
     extensions:
       - 7
@@ -48,5 +48,3 @@
   instances: 
     - - 6
       - 6
-
-

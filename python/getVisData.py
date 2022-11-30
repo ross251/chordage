@@ -43,22 +43,24 @@ def getUnderlaysData(dir_path, instance_count):
 def getInfosData(dir_path, instance_count):
   with open(dir_path + '/infos.yaml', 'r') as yaml_file:
     infos_data = yaml.safe_load(yaml_file)
-
+  
   infos_arr = []
   info_refs = [None] * instance_count
-  index = 0
+  my_index = 0
+
   for info in infos_data:
     for instance_range in info['instances']:
       for idx in range(instance_range[0], instance_range[1] + 1):
-        info_refs[idx] = index
+        info_refs[idx] = my_index
     infos_arr.append(info['info'])
-    index += 1
+    my_index += 1
 
-    return{
-      'infos_data': infos_arr,
-      'info_refs': info_refs
-    }
+  return{
+    'infos_data': infos_arr,
+    'info_refs': info_refs
+  }
 
+##########################################################
 def getTabVisData(dir_path):
   return_dict = {} 
   return_dict['instance_data'] = getInstanceData(dir_path)
@@ -68,4 +70,4 @@ def getTabVisData(dir_path):
 
   return return_dict
 
-print(getTabVisData(dir_path))
+getTabVisData(dir_path)

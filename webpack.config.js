@@ -26,6 +26,14 @@ module.exports = {
           name: '[name].[ext]',
           publicPath: 'static'
         }
+      },
+      {
+        test: /\.(png|svg)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          publicPath: 'static'
+        }
       }
     ]
   }
