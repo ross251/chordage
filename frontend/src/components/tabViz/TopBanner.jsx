@@ -6,6 +6,9 @@ import menu_img from '../../../resources/menu-icon.svg'
 
 function TopBanner(props) {
   const [menu_bool, setMenuBool] = useState(false)
+  const [active_tab_index, setActiveTabIndex] = useState(0)
+  const name = tab_list[active_tab_index][0]
+  const composer = tab_list[active_tab_index][1]
   let menu = null
 
   function getRequest(dir_path) {
@@ -16,8 +19,32 @@ function TopBanner(props) {
         console.log(data)
       })
   }
+  function handleItemClick(el, dir_path) {
+    console.log(dir_path)
+    getRequest(dir_path)
+    setActiveTabIndex(el.getAttribute('index'))
+    setMenuBool(false)
+  }
+
 
   if (menu_bool) {
+    const list_items = tab_list.map((meta_arr, index)=>{
+      return <div 
+          onClick={(e)=>handleItemClick(e.currentTarget, meta_arr[2])} 
+          key={index}
+          index={index}
+          style={{
+            width: props.full_width-2,
+            height: '50px',
+            padding: '5px',
+            margin: '1px',
+            backgroundColor: '#212121',
+            color: 'white'
+      }}>
+        <span style={{display: 'block'}}>{meta_arr[0]}</span>
+        <span style={{display: 'block'}}>{meta_arr[1]}</span>
+      </div>
+    })
     menu = <div style={{
       position: 'absolute',
       top: '70px', 
@@ -28,10 +55,7 @@ function TopBanner(props) {
       zIndex: '10',
       border: '1px solid red'      
     }}>
-      <h1 onClick={() => {getRequest('/home/ross/dev/projects/chordage/data/tab_visualizations/tester1')}}
-      >Tester 1</h1>
-      <h2 onClick={() => {getRequest('/home/ross/dev/projects/chordage/data/tab_visualizations/tester2')}}
-      >Tester 2</h2>
+      {list_items}
     </div>
   }
 
@@ -61,7 +85,7 @@ function TopBanner(props) {
               display:'block',
               fontFamily: 'Verdana, Geneva, sans-serif',
               color: 'white'}}>
-          ii V I Progression 1
+          {name}
         </span>
         <span
             style={{ 
@@ -71,7 +95,7 @@ function TopBanner(props) {
               display:'block',
               fontFamily: 'Verdana, Geneva, sans-serif',
               color: '#999999'}}>
-          Ludvig Von Bheethoven
+          {composer}
             </span>
       </div>
       <div onClick={handleClick} 
@@ -97,60 +121,6 @@ function TopBanner(props) {
       </div>
       {menu}
     </div>
-    /*<div id='topBanner'
-        style={{
-          width: props.full_width,
-          height: '70px', 
-          margin: '5px'}}>
-      <div style={{
-          width: props.full_width -64-20,
-          backgroundColor: '#212121',
-          margin: '1px', 
-          padding: '10px',
-          display:'inline-block',
-          height: '50px'
-          }}>
-      
-        <span
-            style={{
-              margin: '0',
-              padding: '0',
-              fontSize: '25px', 
-              display:'block',
-              fontFamily: 'Verdana, Geneva, sans-serif',
-              color: 'white'}}>
-          ii V I Progression 1
-        </span>
-        <span
-            style={{ 
-              margin: '0',
-              padding: '0',
-              fontSize: '15px',
-              display:'block',
-              fontFamily: 'Verdana, Geneva, sans-serif',
-              color: '#999999'}}>
-          Ludvig Von Bheethoven
-            </span>
-      </div>
-      <div style={{display:'inline-block',
-          position: 'relative',
-          backgroundColor: '#212121',
-          width: '40px',
-          height: '50px',
-          padding: '10px',
-          margin: '1px',}}>
-        <img src={menu_img}
-          width='23px'
-          height='23px'
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)'
-          }}>    
-        </img>
-      </div>
-    </div>*/
   )
 }
 
