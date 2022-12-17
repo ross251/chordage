@@ -1,0 +1,36 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+#tab-box, #infoBannerBox {
+  position: relative;
+  padding: 10px;
+  margin: 5px;
+  background-color: #212121;
+  display: inline-block;
+}
+
+#boardWrap, 
+#chordWrap, 
+#underlayWrap, 
+#scrollSelector {
+  position: absolute;
+  margin: 30px;
+  top: 0;
+  left: 0;
+}
+
+#scrollSelector {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.scrollItem {
+  display: inline-block;
+  box-sizing: border-box;
+  flex: none;
+}
+
+
+ 

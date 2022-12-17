@@ -3,9 +3,10 @@
   "License": "ehh",
   "scripts": {
     "b": "webpack",
-    "s": "python server.py",
-    "bs": "webpack --mode development && python server.py"
+    "s": "python devServer.py",
+    "bs": "webpack && python devServer.py"
   },
+  "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",

@@ -7,28 +7,25 @@ import menu_img from '../../../resources/menu-icon.svg'
 function TopBanner(props) {
   const [menu_bool, setMenuBool] = useState(false)
   const [active_tab_index, setActiveTabIndex] = useState(0)
-  const name = tab_list[active_tab_index][0]
-  const composer = tab_list[active_tab_index][1]
-  let menu = null
-
-  function getRequest(dir_path) {
-    fetch('/tabdata?dir='+dir_path)
+  const [tab_list, setTabList] = useState(null)
+  
+  useEffect(() => {
+    fetch('/api/tablist')
       .then((response) => response.json())
       .then((data) => {
-        props.setTabData(data)
-        console.log(data)
+        setTabList(data)
       })
-  }
-  function handleItemClick(el, dir_path) {
-    console.log(dir_path)
-    getRequest(dir_path)
-    setActiveTabIndex(el.getAttribute('index'))
-    setMenuBool(false)
-  }
+  }, []);
 
+  let name = null
+  let composer = null
+  let list_items = null
+  let menu = null
 
-  if (menu_bool) {
-    const list_items = tab_list.map((meta_arr, index)=>{
+  if (tab_list !== null) {
+    name = tab_list[active_tab_index][0]
+    composer = tab_list[active_tab_index][1]
+    list_items = tab_list.map((meta_arr, index)=>{
       return <div 
           onClick={(e)=>handleItemClick(e.currentTarget, meta_arr[2])} 
           key={index}
@@ -45,6 +42,9 @@ function TopBanner(props) {
         <span style={{display: 'block'}}>{meta_arr[1]}</span>
       </div>
     })
+  }
+
+  if (menu_bool) {
     menu = <div style={{
       position: 'absolute',
       top: '70px', 
@@ -57,6 +57,20 @@ function TopBanner(props) {
     }}>
       {list_items}
     </div>
+  }
+  function getRequest(dir_path) {
+    fetch('/api/tabdata?dir='+dir_path)
+      .then((response) => response.json())
+      .then((data) => {
+        props.setTabData(data)
+        console.log(data)
+      })
+  }
+  function handleItemClick(el, dir_path) {
+    console.log(dir_path)
+    getRequest(dir_path)
+    setActiveTabIndex(el.getAttribute('index'))
+    setMenuBool(false)
   }
 
   let handleClick = () => {

@@ -1,13 +1,16 @@
-const path = require('path')
 module.exports = {
   entry: [
     './src/AppEntry.jsx'
-  ]
-  ,output: {
-    path: __dirname + '/static'
-    ,filename: 'bundle.js'
-  }
-  ,module: {
+  ],
+  output: {
+    path: __dirname + '/static/',
+    filename: 'bundle.js'
+  },
+  /*devServer: { 
+    port: 3000, 
+    proxy: { "/api/**": { target: 'http://localhost:5000', secure: false }  }
+  },*/
+  module: {
     rules:[
       {
         test: /\.(js|jsx)$/,
@@ -23,15 +26,15 @@ module.exports = {
         test: /\.(mp3|m4a)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-          publicPath: 'static'
+          name: 'resources/[name].[ext]',
+          publicPath: 'static/resources'
         }
       },
       {
         test: /\.(png|svg)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          name: 'resources/[name].[ext]',
           publicPath: 'static'
         }
       }
