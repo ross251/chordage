@@ -12,5 +12,4 @@ def getTabList(dir_path):
       tab_list_data.append([meta_dict['name'], meta_dict['composer'], path])
   return tab_list_data
 
-print(getTabList(dir_path))
 

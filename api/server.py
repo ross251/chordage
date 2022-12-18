@@ -7,23 +7,16 @@ from getTabList import getTabList
 
 app = Flask(__name__)
 CORS(app)
-#@app.route("/")
-#def index():
-#  data_dict = getTabVisData(dir_path + '/tester1')
-#  return render_template('index.html', data=data_dict, tab_list=tab_list)
 
 @app.route("/api/tablist", methods=['GET'])
 def tabList():
-  dir_path = '/home/ross/dev/projects/chordage/data/tab_visualizations'
+  dir_path = '../data/tab_visualizations'
   tab_list = getTabList(dir_path)
   return jsonify(tab_list)
 
 @app.route("/api/tabdata", methods=['GET'])
 def getData():
   dir_path = request.args.get('dir')
-  print('#####################')
-  print(dir_path)
-  print('#####################')
   data_dict = getTabVisData(dir_path)
   return jsonify(data_dict)
 

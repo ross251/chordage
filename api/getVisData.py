@@ -67,7 +67,5 @@ def getTabVisData(dir_path):
   return_dict['underlays_data'] = getUnderlaysData(dir_path, instance_count)
   return_dict['infos_data'] = getInfosData(dir_path, instance_count)
 
-  print(return_dict)
   return return_dict
 
-getTabVisData(dir_path)
