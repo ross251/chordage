@@ -9,8 +9,8 @@ RUN npm run b
 
 FROM nginx:alpine
 COPY nginx_chordage.conf /etc/nginx/conf.d/
-RUN mkdir -p /var/www/html/chordage
-WORKDIR /var/www/html/chordage
+RUN mkdir -p /var/www/chordage
+WORKDIR /var/www/chordage
 COPY --from=client /app/src/index.html .
 COPY --from=client /app/static ./static/
 EXPOSE 80
