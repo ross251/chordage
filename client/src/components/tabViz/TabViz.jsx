@@ -4,24 +4,32 @@ import Chord from './Chord.jsx'
 import Underlay from './Underlay.jsx'
 import Info from './Info.jsx'
 import InstanceController from './InstanceController.jsx'
-import TopBanner from './TopBanner.jsx'
-function TabViz() {
-  const [board_size, setBoardSize] = useState('SMALL');
-  const [active_index, setActiveIndex] = useState(0);
-  const [tab_data, setTabData] = useState(null)
-  let svg_height;
-  let svg_width;
-  if(board_size === 'SMALL'){
+
+function TabViz(props) {
+  //const [board_size, setBoardSize] = useState('SMALL');
+  //const [active_index, setActiveIndex] = useState(0);
+  //const [tab_data, setTabData] = useState(null)
+  
+  const active_index = props.active_index
+  const setActiveIndex = props.setActiveIndex
+  const tab_data = props.tab_data
+  //setTabData = props.setTabData
+
+  let svg_height = props.height - 60 - 75
+  let infos_height = svg_height 
+  let svg_width = .66 * props.width - 1
+  let infos_width = .34 * props.width - 1
+  /*if(board_size === 'SMALL'){
     svg_height = 600;
     svg_width = 200;
   } else if (board_size === 'LARGE'){
     svg_height = 900;
     svg_width = 300;
-  }
+  }*/
   let x_offset = svg_width / 7
   let y_offset = svg_height / 13
   
-  let full_width = svg_width * 1.5 + 30
+  //let full_width = svg_width * 1.5 + 30
 
   let chord_component = null
   let underlay_component = null
@@ -97,17 +105,15 @@ function TabViz() {
         
         return ( 
     <div style={{
-      position: 'absolute',
-      width: full_width + 50
+      position: 'relative',
+      width: props.width
     }}>
       <div>
-        <TopBanner
-          full_width = {full_width}
-          setTabData = {setTabData}
-        />
         <div id='tab-box' style={{
           width: svg_width, 
           height: svg_height,
+          marginTop: 2,
+          marginRight: 2,
           zIndex: '1'}}>
           <Board 
             height={svg_height}
@@ -126,14 +132,16 @@ function TabViz() {
           </div>
         </div>
         <div id='infoBannerBox' 
-            style={{height: svg_height,
-              width: svg_width / 2,
-              padding: '10px',
+            style={{
+              height: infos_height,
+              width: infos_width,
+              marginTop: 2,
+              padding: 0,
               zIndex: '1'}}>
           {infos_component}
         </div>
         <InstanceController 
-          full_width={full_width} 
+          full_width={props.width} 
           active_index={active_index}
           instance_count={instance_count}
           setActiveIndex={setActiveIndex}/>

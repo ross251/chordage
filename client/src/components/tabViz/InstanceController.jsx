@@ -46,13 +46,13 @@ function InstanceController(props) {
     <div id='instanceController' style={{
           width: full_width + 20, 
           height: '75px',
-          margin: '5px',
+          margin: 0,
           display: 'block',
           zIndex: '1'}}>
       <div onClick={reversePlay}
         style={{
-          margin: '1px',
-          width: (full_width + 10)*(.15), 
+          marginRight: '1px',
+          width: full_width*.15 - 1, 
           height: '75px',
           backgroundColor: '#212121', 
           display:'inline-block',
@@ -78,8 +78,8 @@ function InstanceController(props) {
       </div>
       <div onClick={backOne}
         style={{
-          margin: '1px',
-          width: (full_width + 10)*(.15), 
+          marginRight: '1px',
+          width: full_width*.15-1, 
           height: '75px',
           backgroundColor: '#212121', 
           display:'inline-block',
@@ -99,8 +99,8 @@ function InstanceController(props) {
         </div>
       </div>
       <div style={{
-          margin: '1px',
-          width: (full_width + 10)*(.40), 
+          marginRight: '1px',
+          width: full_width*(.40) - 1, 
           height: '75px',
           backgroundColor: '#212121', 
           display:'inline-block',
@@ -118,8 +118,8 @@ function InstanceController(props) {
             transform: 'translate(-50%, -50%)'}}>{props.active_index + 1} / {props.instance_count}</span>
       </div>
       <div style={{
-          margin: '1px',
-          width: (full_width + 10)*(.15), 
+          marginRight: '1px',
+          width: full_width*(.15) - 1, 
           height: '75px',
           backgroundColor: '#212121', 
           display:'inline-block',
@@ -141,8 +141,8 @@ function InstanceController(props) {
       </div>
       <div onClick={forwardPlay}
         style={{
-          margin: '1px',
-          width: (full_width + 10)*(.15), 
+          margin: 0,
+          width: full_width*(.15), 
           height: '75px',
           backgroundColor: '#212121', 
           display:'inline-block',

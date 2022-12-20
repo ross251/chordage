@@ -1,11 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Verdana, Geneva, sans-serif;
 }
 
 #tab-box, #infoBannerBox {
   position: relative;
-  padding: 10px;
-  margin: 5px;
+  padding: 0;
+  margin: 0;
   background-color: #212121;
   display: inline-block;
 }
@@ -15,7 +20,7 @@ body {
 #underlayWrap, 
 #scrollSelector {
   position: absolute;
-  margin: 10px;
+  margin: 0;
   top: 0;
   left: 0;
 }

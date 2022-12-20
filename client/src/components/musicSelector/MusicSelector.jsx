@@ -4,17 +4,26 @@ import menu_img from '../../../resources/menu-icon.svg'
 // maybe use this?
 // https://www.freecodecamp.org/news/build-accordion-menu-in-react-without-external-libraries/
 
-function TopBanner(props) {
-  const [menu_bool, setMenuBool] = useState(false)
-  const [active_tab_index, setActiveTabIndex] = useState(0)
-  const [tab_list, setTabList] = useState(null)
-  
+function MusicSelector(props) {
+  /***
+   * sizing
+   */
+  //props.width
+  const menu_icon_block_width = 60
+  const meta_block_width = props.width - menu_icon_block_width - 1
+  const BANNER_HEIGHT = 60
+
+  //props.setTabData
+  const [menu_bool, setMenuBool] = useState(false) 
+  const [active_music_index, setActiveMusicIndex] = useState(0)
+  const [music_list, setMusicList] = useState(null)
+
   useEffect(() => {
-    fetch('/api/tablist')
-      .then((response) => response.json())
-      .then((data) => {
-        setTabList(data)
-      })
+  fetch('/api/tablist')
+    .then((response) => response.json())
+    .then((data) => {
+      setMusicList(data)
+    })
   }, []);
 
   let name = null
@@ -22,19 +31,20 @@ function TopBanner(props) {
   let list_items = null
   let menu = null
 
-  if (tab_list !== null) {
-    name = tab_list[active_tab_index][0]
-    composer = tab_list[active_tab_index][1]
-    list_items = tab_list.map((meta_arr, index)=>{
+  if (music_list !== null) {
+    name = music_list[active_music_index][0]
+    composer = music_list[active_music_index][1]
+    list_items = music_list.map((meta_arr, index)=>{
       return <div 
           onClick={(e)=>handleItemClick(e.currentTarget, meta_arr[2])} 
           key={index}
           index={index}
           style={{
-            width: props.full_width-2,
+            width: props.width,
             height: '50px',
+            boxSizing: 'border-box',
             padding: '5px',
-            margin: '1px',
+            marginBottom: '1px',
             backgroundColor: '#212121',
             color: 'white'
       }}>
@@ -47,13 +57,10 @@ function TopBanner(props) {
   if (menu_bool) {
     menu = <div style={{
       position: 'absolute',
-      top: '70px', 
-      left: '0',
-      right: '0',
-      bottom: '0',
+      width: props.width,
+      top: BANNER_HEIGHT + 5, 
       backdropFilter: 'blur(5px)',
-      zIndex: '10',
-      border: '1px solid red'      
+      zIndex: '10'      
     }}>
       {list_items}
     </div>
@@ -67,9 +74,8 @@ function TopBanner(props) {
       })
   }
   function handleItemClick(el, dir_path) {
-    console.log(dir_path)
     getRequest(dir_path)
-    setActiveTabIndex(el.getAttribute('index'))
+    setActiveMusicIndex(el.getAttribute('index'))
     setMenuBool(false)
   }
 
@@ -79,15 +85,17 @@ function TopBanner(props) {
   return (
     <div style={{
       display: 'block',
-      margin: '5px',
-      width: props.full_width,
+      position: 'relative',
+      width: props.width,
+      height: BANNER_HEIGHT
     }}>
       <div style={{
         display: 'inline-block',
-        width: props.full_width - 84,
-        height: '50px',
+        width: meta_block_width,
+        height: BANNER_HEIGHT,
+        boxSizing: 'border-box',
         padding: '5px',
-        margin: '1px',
+        marginRight: '1px',
         backgroundColor: '#212121',
         float: 'left'
       }}>
@@ -115,10 +123,10 @@ function TopBanner(props) {
       <div onClick={handleClick} 
         style={{
           display: 'inline-block',
-          width: '60px',
-          height: '50px',
+          width: menu_icon_block_width,
+          height: BANNER_HEIGHT,
+          boxSizing: 'border-box',
           padding: '5px',
-          margin: '1px',
           position: 'relative',
           backgroundColor: '#212121'
       }}>
@@ -138,4 +146,4 @@ function TopBanner(props) {
   )
 }
 
-export default TopBanner
+export default MusicSelector

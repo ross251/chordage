@@ -78,7 +78,6 @@ let triad_span = <span style={{
           overflowY: 'visible'
       }}
     > 
-    
       <div style={{display:'inline-block', flex: 'none'}}>
         {base_span}
         {root_span}
