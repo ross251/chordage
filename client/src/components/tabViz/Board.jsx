@@ -5,7 +5,11 @@ function Board(props) {
     <div id='boardWrap'> 
       <svg style={{
           height: props.height,
-          width: props.width
+          width: props.width,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+
         }}>
           {
             // frets

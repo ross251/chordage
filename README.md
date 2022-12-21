@@ -11,3 +11,5 @@ docker image build -t chordage_client:v1 .
 
 To run the image use the following command:
 docker run -dit -p 3300:80 --name chordage_client client:v1
+
+https://www.linode.com/docs/guides/how-to-configure-nginx/

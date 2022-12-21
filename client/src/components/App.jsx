@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TabViz from './tabViz/TabViz.jsx'
 import MusicSelector from './musicSelector/MusicSelector.jsx'
+import { SIZES } from '../util/size_config.js'
 
 let calcWrapWidth = () => {
   const MIN_WIDTH = 300
@@ -42,9 +43,10 @@ function App() {
     setWrapWidth(calcWrapWidth())
     setWrapHeight(calcWrapHeight())
   }
-  const wrap_margin = 5 
+  const wrap_margin = 10 
   const actual_wrap_width = wrap_width - (wrap_margin*2)
   const actual_wrap_height = wrap_height - (wrap_margin*2)
+  const tv_height = actual_wrap_height - SIZES.MS_HEIGHT
 
   /***
    * data control
@@ -61,19 +63,16 @@ function App() {
           style={{
             width: actual_wrap_width,
             height: actual_wrap_height,
-            margin: wrap_margin,
-            backgroundColor: 'cyan'}}>
+            margin: wrap_margin}}>
         <MusicSelector
             width = {actual_wrap_width}
-            setTabData = {setTabData}
-        />
+            setTabData = {setTabData}/>
         <TabViz
-          width={actual_wrap_width}
-          height={actual_wrap_height}
-          active_index={active_index}
-          setActiveIndex={setActiveIndex}
-          tab_data={tab_data}
-        />
+            width={actual_wrap_width}
+            height={tv_height}
+            active_index={active_index}
+            setActiveIndex={setActiveIndex}
+            tab_data={tab_data}/>
       </div>
     </div>
   ) 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import menu_img from '../../../resources/menu-icon.svg'
+import {SIZES} from '../../util/size_config'
 
 // maybe use this?
 // https://www.freecodecamp.org/news/build-accordion-menu-in-react-without-external-libraries/
@@ -10,8 +11,7 @@ function MusicSelector(props) {
    */
   //props.width
   const menu_icon_block_width = 60
-  const meta_block_width = props.width - menu_icon_block_width - 1
-  const BANNER_HEIGHT = 60
+  const meta_block_width = props.width - menu_icon_block_width - SIZES.MARGIN_SMALL
 
   //props.setTabData
   const [menu_bool, setMenuBool] = useState(false) 
@@ -58,7 +58,7 @@ function MusicSelector(props) {
     menu = <div style={{
       position: 'absolute',
       width: props.width,
-      top: BANNER_HEIGHT + 5, 
+      top: SIZES.MS_HEIGHT + 5, 
       backdropFilter: 'blur(5px)',
       zIndex: '10'      
     }}>
@@ -87,12 +87,12 @@ function MusicSelector(props) {
       display: 'block',
       position: 'relative',
       width: props.width,
-      height: BANNER_HEIGHT
+      height: SIZES.MS_HEIGHT
     }}>
       <div style={{
         display: 'inline-block',
         width: meta_block_width,
-        height: BANNER_HEIGHT,
+        height: SIZES.MS_HEIGHT,
         boxSizing: 'border-box',
         padding: '5px',
         marginRight: '1px',
@@ -124,7 +124,7 @@ function MusicSelector(props) {
         style={{
           display: 'inline-block',
           width: menu_icon_block_width,
-          height: BANNER_HEIGHT,
+          height: SIZES.MS_HEIGHT,
           boxSizing: 'border-box',
           padding: '5px',
           position: 'relative',

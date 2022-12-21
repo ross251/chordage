@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import arrow_img from '../../../resources/icons8-chevron-left-64.png' 
+import { SIZES } from '../../util/size_config'
 
 function InstanceController(props) {
   let full_width = props.full_width
@@ -28,6 +29,8 @@ function InstanceController(props) {
     }
   }
 
+  let actual_ic_height = SIZES.IC_HEIGHT - SIZES.MARGIN_BIG
+
   useEffect(() => {
     let interval 
     if (forwardBool) {
@@ -42,18 +45,20 @@ function InstanceController(props) {
     return () => clearInterval(interval);
   }, [forwardBool, reverseBool]);
 
+  let small_multiplier = 1/6
+  let big_multiplier = 1/3
   return ( 
     <div id='instanceController' style={{
-          width: full_width + 20, 
-          height: '75px',
-          margin: 0,
+          width: full_width, 
+          height: actual_ic_height,
+          marginTop: SIZES.MARGIN_BIG,
           display: 'block',
           zIndex: '1'}}>
       <div onClick={reversePlay}
         style={{
           marginRight: '1px',
-          width: full_width*.15 - 1, 
-          height: '75px',
+          width: full_width*small_multiplier, 
+          height: actual_ic_height,
           backgroundColor: '#212121', 
           display:'inline-block',
           float: 'left',
@@ -79,8 +84,8 @@ function InstanceController(props) {
       <div onClick={backOne}
         style={{
           marginRight: '1px',
-          width: full_width*.15-1, 
-          height: '75px',
+          width: full_width*small_multiplier, 
+          height: actual_ic_height,
           backgroundColor: '#212121', 
           display:'inline-block',
           float: 'left',
@@ -100,8 +105,8 @@ function InstanceController(props) {
       </div>
       <div style={{
           marginRight: '1px',
-          width: full_width*(.40) - 1, 
-          height: '75px',
+          width: full_width * big_multiplier - (4), //-right margin adjustment 
+          height: actual_ic_height,
           backgroundColor: '#212121', 
           display:'inline-block',
           float: 'left',
@@ -119,8 +124,8 @@ function InstanceController(props) {
       </div>
       <div style={{
           marginRight: '1px',
-          width: full_width*(.15) - 1, 
-          height: '75px',
+          width: full_width * small_multiplier, 
+          height: actual_ic_height,
           backgroundColor: '#212121', 
           display:'inline-block',
           float: 'left',
@@ -142,8 +147,8 @@ function InstanceController(props) {
       <div onClick={forwardPlay}
         style={{
           margin: 0,
-          width: full_width*(.15), 
-          height: '75px',
+          width: full_width * small_multiplier, 
+          height: actual_ic_height,
           backgroundColor: '#212121', 
           display:'inline-block',
           float: 'left',

@@ -4,32 +4,24 @@ import Chord from './Chord.jsx'
 import Underlay from './Underlay.jsx'
 import Info from './Info.jsx'
 import InstanceController from './InstanceController.jsx'
+import { SIZES } from '../../util/size_config.js'
 
 function TabViz(props) {
-  //const [board_size, setBoardSize] = useState('SMALL');
-  //const [active_index, setActiveIndex] = useState(0);
-  //const [tab_data, setTabData] = useState(null)
+
   
   const active_index = props.active_index
   const setActiveIndex = props.setActiveIndex
   const tab_data = props.tab_data
   //setTabData = props.setTabData
 
-  let svg_height = props.height - 60 - 75
+  let actual_tv_height = props.height - SIZES.MARGIN_BIG
+  let svg_height = actual_tv_height - SIZES.IC_HEIGHT
   let infos_height = svg_height 
-  let svg_width = .66 * props.width - 1
-  let infos_width = .34 * props.width - 1
-  /*if(board_size === 'SMALL'){
-    svg_height = 600;
-    svg_width = 200;
-  } else if (board_size === 'LARGE'){
-    svg_height = 900;
-    svg_width = 300;
-  }*/
+  let svg_width = .66 * props.width - SIZES.MARGIN_BIG
+  let infos_width = .34 * props.width
+
   let x_offset = svg_width / 7
   let y_offset = svg_height / 13
-  
-  //let full_width = svg_width * 1.5 + 30
 
   let chord_component = null
   let underlay_component = null
@@ -77,19 +69,8 @@ function TabViz(props) {
         width: svg_width,
         height: svg_height}}></div>
       })
-    instance_count = tab_data['instance_data']['instance_data'].length
-    
- /*   const infos_refs = tab_data['infos_data']['info_refs']
-    const infos_arr = tab_data['infos_data']['infos_data']
-    const underlays_refs = tab_data['underlays_data']['underlay_refs']
-    const underlays_arr = tab_data['underlays_data']['underlays_data']
-    const chord_arr = tab_data['instance_data']['instance_data']*/
-  }
-  
-
-      
-
-        
+    instance_count = tab_data['instance_data']['instance_data'].length 
+  }    
         let handleScroll = () => {
           let el = document.getElementById('scrollSelector')
           let scrollOffset = el.scrollLeft;
@@ -102,20 +83,21 @@ function TabViz(props) {
             setActiveIndex(i)//[null, null, 0, 0, null]
           }
         }
-        
+        let actual_ic_height = SIZES.IC_HEIGHT - SIZES.MARGIN_BIG
         return ( 
     <div style={{
-      position: 'relative',
-      width: props.width
-    }}>
-      <div>
-        <div id='tab-box' style={{
+        position: 'relative',
+        fontSize: 0, // clears extra margin for inline children 
+        width: props.width,
+        height: actual_tv_height,
+        marginTop: SIZES.MARGIN_BIG}}>
+
+      <div id='tab-box' style={{
           width: svg_width, 
           height: svg_height,
-          marginTop: 2,
-          marginRight: 2,
+          marginRight: SIZES.MARGIN_BIG,
           zIndex: '1'}}>
-          <Board 
+        <Board 
             height={svg_height}
             width={svg_width}
             x_offset={x_offset}
@@ -131,21 +113,20 @@ function TabViz(props) {
             {scroll_blocks}
           </div>
         </div>
+
+
         <div id='infoBannerBox' 
             style={{
               height: infos_height,
               width: infos_width,
-              marginTop: 2,
-              padding: 0,
               zIndex: '1'}}>
           {infos_component}
         </div>
         <InstanceController 
-          full_width={props.width} 
-          active_index={active_index}
-          instance_count={instance_count}
-          setActiveIndex={setActiveIndex}/>
-      </div>
+            full_width={props.width} 
+            active_index={active_index}
+            instance_count={instance_count}
+            setActiveIndex={setActiveIndex}/>
     </div>
   )
 }
