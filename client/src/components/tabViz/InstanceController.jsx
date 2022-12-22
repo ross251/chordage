@@ -6,6 +6,10 @@ function InstanceController(props) {
   let full_width = props.full_width
   let [forwardBool, setForwardBool] = useState(false)
   let [reverseBool, setReverseBool] = useState(false)
+  let active_instance = props.active_index + 1
+  if (props.instance_count == 0) {
+    active_instance = 0
+  }
   if (forwardBool && props.active_index + 1 >= props.instance_count) {
     setForwardBool(false)
   }
@@ -120,7 +124,7 @@ function InstanceController(props) {
             position: 'absolute',
             top: '50%',
             left: '50%',
-            transform: 'translate(-50%, -50%)'}}>{props.active_index + 1} / {props.instance_count}</span>
+            transform: 'translate(-50%, -50%)'}}>{active_instance} / {props.instance_count}</span>
       </div>
       <div style={{
           marginRight: '1px',
