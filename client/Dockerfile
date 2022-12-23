@@ -13,6 +13,5 @@ RUN mkdir -p /var/www/chordage
 WORKDIR /var/www/chordage
 COPY --from=client /app/src/index.html .
 COPY --from=client /app/static ./static/
-EXPOSE 80
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
 
