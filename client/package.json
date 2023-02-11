@@ -1,10 +1,12 @@
 {
   "author": "aRtie H.",
   "License": "ehh",
+  "homepage": "https://ross251.github.io/chordage/",
   "scripts": {
     "b": "webpack",
     "s": "python devServer.py",
-    "bs": "webpack && python devServer.py"
+    "bs": "webpack && python devServer.py",
+    "paged": "gh-pages -d dist"
   },
   "dependencies": {
     "file-loader": "^6.2.0",
@@ -17,6 +19,7 @@
     "@babel/preset-react": "^7.18.6",
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.3",
+    "gh-pages": "^5.0.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
